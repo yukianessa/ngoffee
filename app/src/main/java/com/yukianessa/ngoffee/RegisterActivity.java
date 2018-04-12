@@ -42,13 +42,11 @@ public class RegisterActivity extends AppCompatActivity {
         regCfPswd   = findViewById(R.id.regPswdCnfrm);
         Button goToSignUp = findViewById(R.id.toSignUpBtn);
         Button goToLogin  = findViewById(R.id.toLoginRegBtn);
-        signUpLoading = findViewById(R.id.loginLoadingProgress);
+        signUpLoading = findViewById(R.id.regLoadingProgress);
 
         goToLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent loginIntent = new Intent(RegisterActivity.this, LoginActivity.class);
-                startActivity(loginIntent);
                 finish();
             }
         });
@@ -72,7 +70,9 @@ public class RegisterActivity extends AppCompatActivity {
                             public void onComplete(@NonNull Task<AuthResult> task) {
 
                                 if (task.isSuccessful()){
-                                    sendToMain();
+                                    Intent setupIntent = new Intent(RegisterActivity.this, SetupActivity.class);
+                                    startActivity(setupIntent);
+                                    finish();
                                 } else {
                                     String err = Objects.requireNonNull(task.getException()).getMessage();
                                     Toast.makeText(RegisterActivity.this, "Error: " +err, Toast.LENGTH_LONG).show();
