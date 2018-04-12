@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">ngoffee</string>
+    <string name="logo">ngoffee</string>
+    <string name="passHint">Password</string>
+    <string name="emailHint">E-Mail</string>
+    <string name="singInLogIn">Sign-In!</string>
+    <string name="signUpLogIn">Don\'t Have an Account? Sign-Up!</string>
+    <string name="actionSearchInput">Search</string>
+    <string name="actionAccountSettings">Account Settings</string>
+    <string name="actionLogout">Log Out</string>
+    <string name="createNewAccountLogo">Create a New Account</string>
+    <string name="emailHintReg">E-Mail</string>
+    <string name="passHintReg">Password</string>
+    <string name="passHintRegCnfrm">Confirm Password</string>
+    <string name="signUpRegBtn">Sign-Up!</string>
+    <string name="regLoginBtn">Already Have an Account?</string>
+</resources>
