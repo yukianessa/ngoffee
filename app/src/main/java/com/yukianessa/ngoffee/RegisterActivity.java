@@ -17,6 +17,8 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
+import java.util.Objects;
+
 public class RegisterActivity extends AppCompatActivity {
 
     private EditText regEmail;
@@ -35,12 +37,12 @@ public class RegisterActivity extends AppCompatActivity {
 
         mAuth = FirebaseAuth.getInstance();
 
-        regEmail    = (EditText) findViewById(R.id.regEmail);
-        regPswd     = (EditText) findViewById(R.id.regPswd);
-        regCfPswd   = (EditText) findViewById(R.id.regPswdCnfrm);
-        Button goToSignUp = (Button) findViewById(R.id.toSignUpBtn);
-        Button goToLogin  = (Button) findViewById(R.id.toLoginRegBtn);
-        signUpLoading = (ProgressBar) findViewById(R.id.loginLoadingProgress);
+        regEmail    = findViewById(R.id.regEmail);
+        regPswd     = findViewById(R.id.regPswd);
+        regCfPswd   = findViewById(R.id.regPswdCnfrm);
+        Button goToSignUp = findViewById(R.id.toSignUpBtn);
+        Button goToLogin  = findViewById(R.id.toLoginRegBtn);
+        signUpLoading = findViewById(R.id.loginLoadingProgress);
 
         goToLogin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -68,12 +70,12 @@ public class RegisterActivity extends AppCompatActivity {
 
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
+
                                 if (task.isSuccessful()){
                                     sendToMain();
                                 } else {
-                                    String err = task.getException().getMessage();
-                                    Toast.makeText
-                                            (RegisterActivity.this, "Error: " +err, Toast.LENGTH_LONG).show();
+                                    String err = Objects.requireNonNull(task.getException()).getMessage();
+                                    Toast.makeText(RegisterActivity.this, "Error: " +err, Toast.LENGTH_LONG).show();
                                 }
                                 signUpLoading.setVisibility(View.INVISIBLE);
                             }

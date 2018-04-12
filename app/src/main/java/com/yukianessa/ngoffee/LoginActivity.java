@@ -17,6 +17,8 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
+import java.util.Objects;
+
 public class LoginActivity extends AppCompatActivity {
 
     private EditText loginToEmail;
@@ -32,11 +34,11 @@ public class LoginActivity extends AppCompatActivity {
 
         mAuth = FirebaseAuth.getInstance();
 
-        loginToEmail    = (EditText) findViewById(R.id.loginEmail);
-        loginToPswd     = (EditText) findViewById(R.id.loginPswd);
-        Button loginToBtn    = (Button) findViewById(R.id.loginBtn);
-        Button loginToRegBtn = (Button) findViewById(R.id.toLoginRegBtn);
-        loginToLoading  = (ProgressBar) findViewById(R.id.loginLoadingProgress);
+        loginToEmail    = findViewById(R.id.loginEmail);
+        loginToPswd     = findViewById(R.id.loginPswd);
+        Button loginToBtn    = findViewById(R.id.loginBtn);
+        Button loginToRegBtn = findViewById(R.id.toLoginRegBtn);
+        loginToLoading  = findViewById(R.id.loginLoadingProgress);
 
         loginToRegBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -68,7 +70,7 @@ public class LoginActivity extends AppCompatActivity {
                                 //login success
                                 sendToMain();
                             } else {
-                                String err = task.getException().getMessage(); //err == error message
+                                String err = Objects.requireNonNull(task.getException()).getMessage(); //err == error message
                                 Toast.makeText(LoginActivity.this, "Error: " + err, Toast.LENGTH_LONG).show();
                             }
                             loginToLoading.setVisibility(View.INVISIBLE);

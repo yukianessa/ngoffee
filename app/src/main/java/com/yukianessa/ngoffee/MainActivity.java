@@ -12,8 +12,6 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class MainActivity extends AppCompatActivity {
 
-    private Toolbar mainToToolbar;
-
     private FirebaseAuth mAuth;
 
     @Override
@@ -23,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
 
         mAuth = FirebaseAuth.getInstance();
 
-        mainToToolbar = (Toolbar) findViewById(R.id.mainToolbars);
+        Toolbar mainToToolbar = findViewById(R.id.mainToolbars);
         setSupportActionBar(mainToToolbar);
 
         getSupportActionBar().setTitle("ngoffee");
@@ -36,8 +34,7 @@ public class MainActivity extends AppCompatActivity {
 
         FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
         if(currentUser == null) {
-            // user was'nt sign-in
-            sendToLogIn();
+            sendToLogIn();  // user was'nt sign-in
         }
     }
 
@@ -54,14 +51,14 @@ public class MainActivity extends AppCompatActivity {
         switch (item.getItemId()){
             case R.id.actionLogoutBtn:
                 logOut();
-                return true;
+                return true; //go to LogOut statement
             default:
-                return false;
+                return false; //nothing happen
         }
     }
 
-    private void logOut() {
-     mAuth.signOut();
+    private void logOut() { // when user pick LogOout Action it will arrange to login Page
+     mAuth.signOut(); // make sure to make it logout status to database
      sendToLogIn();
     }
 
