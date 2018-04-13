@@ -47,6 +47,8 @@ public class RegisterActivity extends AppCompatActivity {
         goToLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Intent loginIntent = new Intent(RegisterActivity.this, LoginActivity.class);
+                startActivity(loginIntent);
                 finish();
             }
         });
@@ -70,12 +72,13 @@ public class RegisterActivity extends AppCompatActivity {
                             public void onComplete(@NonNull Task<AuthResult> task) {
 
                                 if (task.isSuccessful()){
-                                    Intent setupIntent = new Intent(RegisterActivity.this, SetupActivity.class);
-                                    startActivity(setupIntent);
+                                    Intent goSetupIntent = new Intent(RegisterActivity.this, SetupActivity.class);
+                                    startActivity(goSetupIntent);
                                     finish();
                                 } else {
                                     String err = Objects.requireNonNull(task.getException()).getMessage();
-                                    Toast.makeText(RegisterActivity.this, "Error: " +err, Toast.LENGTH_LONG).show();
+                                    Toast.makeText
+                                            (RegisterActivity.this, "Error: " +err, Toast.LENGTH_LONG).show();
                                 }
                                 signUpLoading.setVisibility(View.INVISIBLE);
                             }

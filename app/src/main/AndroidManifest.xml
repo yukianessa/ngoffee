@@ -26,7 +26,10 @@
             android:name=".LoginActivity"
             android:screenOrientation="portrait" />
         <activity android:name=".RegisterActivity" />
-        <activity android:name=".SetupActivity"></activity>
+        <activity
+            android:name=".SetupActivity"
+            android:screenOrientation="portrait">
+        </activity>
     </application>
 
 </manifest>
