@@ -10,6 +10,8 @@ import android.view.MenuItem;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
+import java.util.Objects;
+
 public class MainActivity extends AppCompatActivity {
 
     private FirebaseAuth mAuth;
@@ -23,8 +25,7 @@ public class MainActivity extends AppCompatActivity {
 
         Toolbar mainToToolbar = findViewById(R.id.mainToolbars);
         setSupportActionBar(mainToToolbar);
-
-        getSupportActionBar().setTitle("ngoffee");
+        Objects.requireNonNull(getSupportActionBar()).setTitle("ngoffee");
 
     }
 
@@ -52,9 +53,18 @@ public class MainActivity extends AppCompatActivity {
             case R.id.actionLogoutBtn:
                 logOut();
                 return true; //go to LogOut statement
+            case R.id.actionAccSettBtn:
+                settingSetUp();
+                return true;
             default:
                 return false; //nothing happen
         }
+    }
+
+    private void settingSetUp() { // got to settings profile the current user
+        Intent settingIntent = new Intent(MainActivity.this,  SetupActivity.class);
+        startActivity(settingIntent);
+        finish();
     }
 
     private void logOut() { // when user pick LogOout Action it will arrange to login Page

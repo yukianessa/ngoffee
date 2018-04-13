@@ -9,10 +9,11 @@ import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
-import android.widget.ImageView;
 import android.widget.Toast;
 
 import java.util.Objects;
+
+import de.hdodenhof.circleimageview.CircleImageView;
 
 import static com.yukianessa.ngoffee.R.layout.activity_setup;
 
@@ -26,7 +27,7 @@ public class SetupActivity extends AppCompatActivity {
         Toolbar setupToolbars = findViewById(R.id.setupToolbar);
         setSupportActionBar(setupToolbars);
         Objects.requireNonNull(getSupportActionBar()).setTitle("Account Set Up");
-        ImageView setupImageIn = findViewById(R.id.setupImage);
+        CircleImageView setupImageIn = findViewById(R.id.setupImage);
 
         setupImageIn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -41,8 +42,7 @@ public class SetupActivity extends AppCompatActivity {
                         ActivityCompat.requestPermissions
                                 (SetupActivity.this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE},1);
                     } else {
-                        Toast.makeText(SetupActivity.this, "You're already have permission, Permission Granted!",
-                                Toast.LENGTH_LONG).show();
+                        //Toast.makeText(SetupActivity.this, "You're already have permission, Permission Granted!", Toast.LENGTH_LONG).show();
                     }
                 }
             }
