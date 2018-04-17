@@ -5,4 +5,5 @@
     <color name="colorAccent">#cc6600</color>
     <color name="hintWhite">#8cffffff</color>
     <color name="backgroundLogIn">#221614</color>
+    <color name="backgroundSetUp">#221614</color>
 </resources>

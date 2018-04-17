@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/backgroundSetUp"
     tools:context=".SetupActivity">
 
     <android.support.v7.widget.Toolbar
@@ -25,6 +26,61 @@
         android:contentDescription="@string/imageInput"
         android:src="@drawable/default_image"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/setupLoading" />
+
+    <EditText
+        android:id="@+id/setupNameIn"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="32dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="62dp"
+        android:backgroundTint="@color/hintWhite"
+        android:ems="10"
+        android:fontFamily="casual"
+        android:hint="@string/setupHintName"
+        android:inputType="textPersonName"
+        android:padding="16dp"
+        android:textAlignment="center"
+        android:textColor="@android:color/white"
+        android:textColorHint="@color/hintWhite"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/setupImage" />
+
+    <Button
+        android:id="@+id/setupSaveBtn"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="171dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:elevation="24dp"
+        android:fontFamily="cursive"
+        android:text="@string/setupDoneBtn"
+        android:textAllCaps="false"
+        android:textColor="@android:color/white"
+        android:textSize="36sp"
+        android:textStyle="bold|italic"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/setupNameIn" />
+
+    <ProgressBar
+        android:id="@+id/setupLoading"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:indeterminate="true"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/setupToolbar" />
 

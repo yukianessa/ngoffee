@@ -14,7 +14,10 @@ import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity {
 
+    private Toolbar mainToToolbar;
+
     private FirebaseAuth mAuth;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
 
         mAuth = FirebaseAuth.getInstance();
 
-        Toolbar mainToToolbar = findViewById(R.id.mainToolbars);
+        mainToToolbar = findViewById(R.id.mainToolbars);
         setSupportActionBar(mainToToolbar);
         Objects.requireNonNull(getSupportActionBar()).setTitle("ngoffee");
 
