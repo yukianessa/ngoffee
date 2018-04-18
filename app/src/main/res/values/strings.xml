@@ -17,4 +17,7 @@
     <string name="setupHintName">Your Name</string>
     <string name="imageInput">imagesUpload</string>
     <string name="setupDoneBtn">Save</string>
+    <string name="hintDesc">Add Descriptions</string>
+    <string name="newPostBtn">Post!</string>
+    <string name="newPostImg">New Image</string>
 </resources>

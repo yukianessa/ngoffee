@@ -2,19 +2,20 @@ package com.yukianessa.ngoffee;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
-import java.util.Objects;
-
 public class MainActivity extends AppCompatActivity {
 
     private Toolbar mainToToolbar;
+    private FloatingActionButton addPostBtn;
 
     private FirebaseAuth mAuth;
 
@@ -28,7 +29,18 @@ public class MainActivity extends AppCompatActivity {
 
         mainToToolbar = findViewById(R.id.mainToolbars);
         setSupportActionBar(mainToToolbar);
-        Objects.requireNonNull(getSupportActionBar()).setTitle("ngoffee");
+        getSupportActionBar().setTitle("ngoffee");
+
+        addPostBtn = findViewById(R.id.newPostBtn);
+
+        addPostBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent goToAddNewPost = new Intent(MainActivity.this, NewPostActivity.class);
+                startActivity(goToAddNewPost);
+            }
+        });
 
     }
 
