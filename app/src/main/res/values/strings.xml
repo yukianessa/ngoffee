@@ -20,4 +20,10 @@
     <string name="hintDesc">Add Descriptions</string>
     <string name="newPostBtn">Post!</string>
     <string name="newPostImg">New Image</string>
+    <string name="bottomhomemenu">Menu</string>
+    <string name="bottomnotificationtext">Notifications</string>
+    <string name="bottomaccmenu">Account</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

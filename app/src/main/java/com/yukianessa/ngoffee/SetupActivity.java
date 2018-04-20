@@ -218,7 +218,8 @@ public class SetupActivity extends AppCompatActivity {
         userMap.put("name", user_name);
         userMap.put("image", download_uri.toString());
 
-        firebaseFirestore.collection("users").document(userId).set(userMap).addOnCompleteListener(new OnCompleteListener<Void>() {
+        firebaseFirestore.collection("users").document(userId)
+                .set(userMap).addOnCompleteListener(new OnCompleteListener<Void>() {
 
             @Override
             public void onComplete(@NonNull Task<Void> task) {
@@ -231,19 +232,15 @@ public class SetupActivity extends AppCompatActivity {
                     Intent goToMain = new Intent
                             (SetupActivity.this, MainActivity.class);
                     startActivity(goToMain);
-                    finish();
-                } else {
 
+                } else {
                     String err = task.getException().getMessage();
                     Toast.makeText
                             (SetupActivity.this,"Firebase Firestore: " + err, Toast.LENGTH_LONG).show();
                 }
-
                 setupToLoading.setVisibility(View.INVISIBLE);
-
             }
         });
-
     }
 
     private void imgPicker() {

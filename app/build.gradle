@@ -31,10 +31,13 @@ dependencies {
     implementation 'com.google.firebase:firebase-firestore:15.0.0'
 
     implementation 'com.github.bumptech.glide:glide:4.7.1'          // solution get string to images
+    implementation 'com.android.support:support-v4:27.1.1'          // solution for use fragment
     annotationProcessor 'com.github.bumptech.glide:compiler:4.7.1'  // solution get string to images
 
     compile 'de.hdodenhof:circleimageview:2.2.0'                 // library for circle imageView
     compile 'com.theartofdev.edmodo:android-image-cropper:2.7.0' // library for image crop
+
+    compile 'id.zelory:compressor:2.1.0' // library compress images quality
 
     implementation 'com.google.gms:google-services:3.2.1' //to fix bug
 
