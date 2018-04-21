@@ -48,44 +48,48 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(mainToToolbar);
         getSupportActionBar().setTitle("ngoffee");
 
-        mainBottomNav = findViewById(R.id.bottomNav);
+        if (mAuth.getCurrentUser() != null) {
 
-        //Fragment
-        mHomeFragment       = new HomeFragment();
-        mNotifyFragment     = new NotificationFragment();
-        mAccFragment        = new AccountFragment();
+            addPostBtn = findViewById(R.id.newPostBtn);
+            mainBottomNav = findViewById(R.id.bottomNav);
 
-        addPostBtn = findViewById(R.id.newPostBtn);
+            //Fragment
+            mHomeFragment = new HomeFragment();
+            mNotifyFragment = new NotificationFragment();
+            mAccFragment = new AccountFragment();
 
-        mainBottomNav.setOnNavigationItemSelectedListener
-                (new BottomNavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+            replaceFragment(mHomeFragment);
 
-                switch (item.getItemId()){
-                    case R.id.btmActionHome:
-                        replaceFragment(mHomeFragment);
-                        return true;
-                    case R.id.btmActionNotify:
-                        replaceFragment(mNotifyFragment);
-                        return true;
-                    case R.id.btmActionAcc:
-                        replaceFragment(mAccFragment);
-                        return true;
-                    default:
-                        return false;
+            mainBottomNav.setOnNavigationItemSelectedListener
+                    (new BottomNavigationView.OnNavigationItemSelectedListener() {
+                        @Override
+                        public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+
+                            switch (item.getItemId()) {
+                                case R.id.btmActionHome:
+                                    replaceFragment(mHomeFragment);
+                                    return true;
+                                case R.id.btmActionNotify:
+                                    replaceFragment(mNotifyFragment);
+                                    return true;
+                                case R.id.btmActionAcc:
+                                    replaceFragment(mAccFragment);
+                                    return true;
+                                default:
+                                    return false;
+                            }
+                        }
+                    });
+
+            addPostBtn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+                    Intent goToAddNewPost = new Intent(MainActivity.this, NewPostActivity.class);
+                    startActivity(goToAddNewPost);
                 }
-            }
-        });
-
-        addPostBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                Intent goToAddNewPost = new Intent(MainActivity.this, NewPostActivity.class);
-                startActivity(goToAddNewPost);
-            }
-        });
+            });
+        }
     }
 
     @Override

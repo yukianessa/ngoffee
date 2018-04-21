@@ -3,7 +3,11 @@
     <color name="colorPrimary">#996633</color>
     <color name="colorPrimaryDark">#663300</color>
     <color name="colorAccent">#cc6600</color>
+
     <color name="hintWhite">#8cffffff</color>
     <color name="backgroundLogIn">#221614</color>
     <color name="bottomNav">#3b3127</color>
+    <color name="whiteTransparentHalf">#80ffffff</color>
+    <color name="likeBtnGray">#747474</color>
+    <color name="likeBtnAccent">#F44336</color>
 </resources>

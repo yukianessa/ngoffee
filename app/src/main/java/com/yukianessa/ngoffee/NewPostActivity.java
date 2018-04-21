@@ -171,7 +171,8 @@ public class NewPostActivity extends AppCompatActivity {
 
                                                 if(task.isSuccessful()){
 
-                                                    Toast.makeText(NewPostActivity.this, "Post was added", Toast.LENGTH_LONG).show();
+                                                    Toast.makeText
+                                                            (NewPostActivity.this, "Post was added", Toast.LENGTH_LONG).show();
                                                     Intent mainIntent = new Intent(NewPostActivity.this, MainActivity.class);
                                                     startActivity(mainIntent);
                                                     finish();
